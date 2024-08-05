@@ -5,7 +5,7 @@ function Header({ cart }) {
     <>
       <div
         className="
-            flex flex-row gap-8 justify-center 
+            flex flex-row gap-8 justify-center flex-wrap
             mt-4 p-4
             border-2 border-black"
       >

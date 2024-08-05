@@ -55,11 +55,11 @@ function Products({ setCart }) {
 
       <div className="flex flex-wrap gap-12 justify-center">
         {filteredProducts.map((product) => (
-          <Link to={`/product/${product.id}`}>
+          <Link key={product.id} to={`/product/${product.id}`}>
             <ProductCard
               addToCart={() => addToCart(product)}
-              key={product.id}
               product={product}
+              addedProduct={true}
             />
           </Link>
         ))}

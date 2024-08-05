@@ -1,9 +1,6 @@
 import React from "react";
 import "./App.css";
-import Products from "./Components/Products";
 import { Outlet } from "react-router-dom";
-import ProductDetails from "./Components/ProductDetails";
-import Cart from "./Components/Cart";
 import { useSelector } from "react-redux";
 import Header from "./Components/Header";
 

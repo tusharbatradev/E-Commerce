@@ -1,23 +1,22 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import useSeperateProduct from "../../Utils/useSeperateProduct";
 
 function ProductDetails() {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
 
-  useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
-  }, [id]);
+  const product = useSeperateProduct(id);
 
   console.log(product);
   return (
     <>
-      <img className="h-44 w-44" src={product.image} alt="PRODUCT IMAGE" />
-      <h1 className="text-3xl">{product.title}</h1>
-      <h1 className="text-sm">{product.description}</h1>
-      <h1 className="text-3xl">{product.price}/-</h1>
+      <div className="flex justify-center gap-[100px]">
+        <img className="h-[500px] w-1/2" src={product.image} alt="PRODUCT IMAGE" />
+        <div className="flex flex-col gap-[24px] w-1/2">
+          <h1 className="text-4xl">{product.title}</h1>
+          <h1 className="text-xl">{product.description}</h1>
+          <h1 className="text-3xl">{product.price}/-</h1>
+        </div>
+      </div>
     </>
   );
 }
