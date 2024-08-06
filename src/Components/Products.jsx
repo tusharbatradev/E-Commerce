@@ -3,14 +3,14 @@ import ProductCard from "./ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../Redux/cartSlice";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../Utils/useOnlineStatus";
+import useSearchProducts from "../../Utils/useSearchProduct";
 
-function Products({ setCart }) {
+function Products() {
   const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
+  const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
 
   const addToCart = (product) => {
     dispatch(addItem(product));
@@ -22,24 +22,17 @@ function Products({ setCart }) {
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
-        setFilteredProducts(data);
       });
   }, []);
 
-  useEffect(() => {
-    if (searchInput) {
-      const filtered = products.filter((product) =>
-        product.title.toLowerCase().includes(searchInput.toLowerCase())
-      );
-      setFilteredProducts(filtered);
-    } else {
-      setFilteredProducts(products);
-    }
-  }, [searchInput, products]);
+  const { filteredProducts, searchInput, handleSearchChange } =
+    useSearchProducts(products);
 
-  const handleSearchChange = (e) => {
-    setSearchInput(e.target.value);
-  };
+  let onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === "false") {
+    return <h1>Looks Like you're Offline</h1>;
+  }
 
   return (
     <>
