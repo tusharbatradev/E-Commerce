@@ -20,7 +20,7 @@ function Products() {
   };
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("http://localhost:3000/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -50,7 +50,7 @@ function Products() {
         />
       </div>
 
-      <div className="flex flex-wrap gap-12 justify-center">
+      <div className="flex flex-wrap justify-center gap-2">
         {filteredProducts.map((product) => (
           <Link key={product.id} to={`/product/${product.id}`}>
             {

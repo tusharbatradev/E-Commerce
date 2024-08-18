@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 function ProductCard({ product, addToCart, addedProduct }) {
   return (
     <>
-      <div className="hover:border-2 border-black rounded-lg 
-        h-[400px] max-h-[400px] p-6 w-64 max-w-64 justify-between items-center flex flex-col gap-2">
-        <div>
+      <div className="rounded-lg h-[250px] max-h-[500px] w-64 max-w-64   flex flex-col gap-[8px]">
+        <div className="w-full">
           <img
-            className="max-w-36 max-h-36 flex"
+            className="max-w-full max-h-full flex"
             src={product.image}
             alt="IMAGE"
           />
@@ -16,13 +15,13 @@ function ProductCard({ product, addToCart, addedProduct }) {
           <h1 className="font-semibold antialiased">{product.title}</h1>
           <h1>{product.category}</h1>
           <h1>PRICE:- {product.price} /-</h1>
-          <h1>RATING:- {product.rating.rate}</h1>
+          {/* <h1>RATING:- {product.rating}</h1> */}
         </div>
 
         {addedProduct && (
           <button
             onClick={addToCart}
-            className="bg-slate-800 text-white w-full"
+            className="bg-slate-800 text-white w-[100px]"
           >
             Add to Cart
           </button>
