@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header cart={cart} />
-      <div className="p-8 flex flex-col gap-6">
+      <div className="p-8 pb-16 flex flex-col gap-6">
         <Outlet />
       </div>
     </>

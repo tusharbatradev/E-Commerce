@@ -6,7 +6,7 @@ function ProductCard({ product, addToCart, addedProduct }) {
       <div className="rounded-lg h-[250px] max-h-[500px] w-64 max-w-64   flex flex-col gap-[8px]">
         <div className="w-full">
           <img
-            className="max-w-full max-h-full flex"
+            className="max-w-full max-h-[300px] flex"
             src={product.image}
             alt="IMAGE"
           />

@@ -10,11 +10,10 @@ function ProductDetails() {
 
   return (
     <>
-      <div className="flex justify-center ite\ gap-[50px]">
-        <div className="p-8 flex 
-        justify-center border-black border-2 rounded-xl">
+      <div className="flex justify-center gap-[50px]">
+        <div className="">
           <img
-          className="h-[500px]"
+          className="h-[400px]"
             src={product.image}
             alt="PRODUCT IMAGE"
           />

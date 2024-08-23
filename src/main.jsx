@@ -5,13 +5,11 @@ import "./index.css";
 import { Provider } from "react-redux";
 import store from "./Redux/store.js";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-// import About from "./About.jsx";
 import Contact from "./Contact.jsx";
 import Error from "./Components/Error.jsx";
 import Cart from "./Components/Cart.jsx";
 import Products from "./Components/Products.jsx";
 import ProductDetails from "./Components/ProductDetails.jsx";
-// import Grocery from "./Components/Grocery.jsx";
 
 const Grocery = lazy(() => import("./Components/Grocery.jsx"));
 const About = lazy(() => import("./About.jsx"));

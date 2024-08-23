@@ -17,13 +17,13 @@ function Cart() {
   }
 
   return (
-    <div>
-      <h1>Your Cart</h1>
-      <div className="flex flex-wrap gap-12 justify-center">
+    <div className="flex gap-[10px] flex-col">
+      <h1 className="text-2xl">Your Cart</h1>
+      <div className="flex flex-wrap gap-8 justify-center h-[420px]">
         {cart.length > 0 ? (
           cart.map((product, index) => (
             <>
-              <div key={index} className="p-4 border-2 border-black">
+              <div key={index} className="p-4">
                 <ProductCard product={product} />
               </div>
             </>
@@ -32,8 +32,13 @@ function Cart() {
           <p>Your cart is empty.</p>
         )}
       </div>
+      <div>
       <h1>Total Amount :- {totalAmount}</h1>
-      <h1 onClick={deleteCart}>Delete Full Cart</h1>
+      <br />
+      <button className="bg-black text-white p-2 rounded-xl">Checkout</button>
+      <br />
+      <button className="cursor-pointer bg-slate-400 p-2 rounded-xl mt-2" onClick={deleteCart}>Delete Full Cart</button>
+      </div>
     </div>
   );
 }

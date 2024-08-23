@@ -39,8 +39,8 @@ function Products() {
   console.log(products);
 
   return (
-    <>
-      <div className="flex justify-center my-4">
+    <section className="h-[100vh]">
+      <div className="flex justify-center my-4 ">
         <input
           type="text"
           placeholder="Search a Product"
@@ -50,11 +50,10 @@ function Products() {
         />
       </div>
 
-      <div className="flex flex-wrap justify-center gap-2">
+      <div className="flex flex-wrap justify-center gap-2 h-[900px]">
         {filteredProducts.map((product) => (
           <Link key={product.id} to={`/product/${product.id}`}>
             {
-              /* If the rating is more than 4 then add a rated label to it */
               product.rating.rate >= 4 ? (
                 <ProductCardRated
                   addToCart={() => addToCart(product)}
@@ -72,7 +71,7 @@ function Products() {
           </Link>
         ))}
       </div>
-    </>
+    </section>
   );
 }
 
